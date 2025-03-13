@@ -1,7 +1,9 @@
 # balance : 통장에 들어있는 기본 금액을 담는 변수
 # 1.입금, 2.출금, 3.영수증보기,4.종료 ==> 숫자로 원하는 기능을 입력
 # 사용자가 입력한 기능은 num 변수에 달아주세요
-# deposit_amount: 
+# deposit_amount: 입금금액
+# withdraw_amount: 출금금액 
+# balance: 원금 
 balance = 3000
 
 while True:
@@ -15,7 +17,13 @@ while True:
         else:
             print("정신차리고,제대로된 숫자형태로 입금액을 작성해줘!")
     if num =="2":
-        pass
+        withdraw_amount = input("출금할 금액을 입력해주세요 :")
+        if withdraw_amount.isdigit() and int(withdraw_amount) > 0 :
+            withdraw_amount = min(balance, int(withdraw_amount))
+            balance -= withdraw_amount
+            print(f"고객님이 출금한 금액은 {withdraw_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+        else:
+            print("정신차리고,제대로된 숫자형태로 입금액을 작성해줘!")
     if num =="3":
         pass
     if num =="4":
